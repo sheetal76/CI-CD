@@ -2,16 +2,16 @@ version: 0.0
 os: linux
 files:
   - source: /index.html
-    destination: /var/www/html/
+    destination: /mnt/demo/cicd
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
-      timeout: 600
-      runas: root
+      timeout: 300
+      runas: ec2-user
     - location: scripts/start_server
-      timeout: 600
-      runas: root
+      timeout: 300
+      runas: ec2-user
   ApplicationStop:
     - location: scripts/stop_server
-      timeout: 600
-      runas: root
+      timeout: 300
+      runas: ec2-user
